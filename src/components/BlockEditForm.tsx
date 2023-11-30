@@ -19,7 +19,7 @@ export default function BlockEditForm({ block }: BlockEditFormProps) {
     setCode(value);
   }
 
-  const editBlockAction = actions.editBlock.bind(null, code);
+  const editBlockAction = actions.editBlock.bind(null, block.id, code);
 
   return (
     <div className="mt-10">
@@ -31,8 +31,9 @@ export default function BlockEditForm({ block }: BlockEditFormProps) {
         options={{ minimap: { enabled: false } }}
         onChange={handleEditorChange}
       />
-      
+
       <form action={editBlockAction}>
+        {/* input 또 있다면 formData로 갈 것이다.  */}
         <button type="submit" className="p-2 border rounded">
           Save
         </button>
